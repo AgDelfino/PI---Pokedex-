@@ -1,12 +1,79 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('pokemon', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+  sequelize.define(
+    "pokemon",
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: [0, 20],
+        },
+      },
+      hp: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      attack: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999, 
+        }
+      },
+      defense: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999
+        }
+      },
+      speed: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0, 
+        validate: {
+          min: 0,
+          max: 999,
+        }
+      },
+      height: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999
+        }
+      },
+      weight: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999
+        }
+      },
+      image: {
+        type: DataTypes.STRING,
+        defaultValue: 'https://pm1.narvii.com/6351/04068e1800708e5acac65376ce124da982b9d188_hq.jpg'
+      }
     },
-  });
+    {
+      timestamps: false,
+    }
+  );
 };
