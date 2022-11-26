@@ -1,6 +1,11 @@
-const {Router} = require('express')
+const { Router } = require("express");
+const { getTypes } = require("../utils/utils");
 
-TypesRouter = Router(); 
+const TypesRouter = Router();
 
+TypesRouter.get("/", async (req, res) => {
+  const types = await getTypes();
+  res.send(types);
+});
 
-module.exports = TypesRouter
+module.exports = TypesRouter;
