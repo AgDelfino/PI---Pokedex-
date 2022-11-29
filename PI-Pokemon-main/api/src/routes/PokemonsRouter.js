@@ -18,11 +18,11 @@ PokemonsRouter.get('/', async(req,res)=>{
   if(queryName){
     queryName = queryName.toLocaleLowerCase()
     let pokeResult = await getApiPokemonByName(queryName)
-    console.log(pokeResult);
+    
   
   if(pokeResult.msg){
     pokeResult = await getDbPokemonByName(queryName)
-    console.log("HOLA SOY EL SEGUNDO LOG", pokeResult);
+    
     if(pokeResult === null || pokeResult.msg === "Name not Found"){
       res.status(404).send({error: "Pokemon Not Found"})
     }else {
