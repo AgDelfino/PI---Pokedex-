@@ -3,6 +3,7 @@ import { GET_ALL_POKEMONS, ERROR } from "./actions";
 
 const initialState = {
     pokemons: [],
+    filteredPokemons: [],
     error: {},
 }
 

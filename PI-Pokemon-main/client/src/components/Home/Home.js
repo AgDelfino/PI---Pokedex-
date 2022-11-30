@@ -1,31 +1,11 @@
-import React, {useEffect} from  'react'
-import {useDispatch, useSelector} from 'react-redux'
-import { getAllPokemons } from '../../Redux/actions'
-import Pokemon from '../Pokemon/Pokemon'
-
+import React from "react";
+import NavBar from "../NavBar/NavBar";
 
 const Home = () => {
-    const dispatch = useDispatch()
-    const pokemons = useSelector(state=> state.pokemons)
+    return (
+        <NavBar/>
+        
+    )
+}
 
-    useEffect(() => {
-        dispatch(getAllPokemons())
-    }, [dispatch])
-   
-    if(pokemons.length) {
-        return (
-            <>
-                {pokemons.map(pokemon => <Pokemon key={pokemon.id} pokemon={pokemon }/>) }
-            </>
-        )
-    }else {
-        return (
-            <>
-                <h3>LOADING</h3>
-            </>
-        )
-    }
-
-    }
-    
-    export default Home;
+export default Home;
