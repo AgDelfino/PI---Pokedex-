@@ -4,10 +4,10 @@
    justify-content: center;
    height: 100vh;
    flex-direction: column;
-   background-image: url('../../images/landing.jpg');
+   background-image: url('../../images/landing2.jpg');
    background-position: center;
-   background-size: cover;
-   background-repeat: none;
+   background-size:cover;
+   background-repeat:none;
 }
 
 

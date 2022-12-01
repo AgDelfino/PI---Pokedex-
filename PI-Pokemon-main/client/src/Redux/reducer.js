@@ -3,7 +3,7 @@ import { GET_ALL_POKEMONS, ERROR } from "./actions";
 
 const initialState = {
     pokemons: [],
-    filteredPokemons: [],
+    totalPokemons: 0,
     error: {},
 }
 
@@ -13,7 +13,6 @@ export default function rootReducer (state=initialState, action) {
             return {
                 ...state,
                 pokemons: action.payload,
-                filteredPokemons: action.payload,
             }
         case ERROR: 
         return {

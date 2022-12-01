@@ -7,11 +7,11 @@ import { getAllPokemons } from "../../Redux/actions";
 
 const LandingPage = () => {
 
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
 
     useEffect(()=> {
         dispatch(getAllPokemons())
-    })
+    }, [dispatch])
 
     return (
         <div className={style.lading_container}>

@@ -6,7 +6,7 @@ export const ERROR = "ERROR";
 
 export function getAllPokemons () {
   
-  return function (dispatch){
+  return  function (dispatch){
     axios.get('http://localhost:3001/pokemons')
     .then (response => {
       dispatch({
