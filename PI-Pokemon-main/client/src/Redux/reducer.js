@@ -13,6 +13,7 @@ export default function rootReducer (state=initialState, action) {
             return {
                 ...state,
                 pokemons: action.payload,
+                filteredPokemons: action.payload,
             }
         case ERROR: 
         return {

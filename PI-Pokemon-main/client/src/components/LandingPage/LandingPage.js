@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from './LandingPage.module.css'
 import { Link } from "react-router-dom";
 import pokedex from '../../images/pokedex.png'
+import { useDispatch } from "react-redux";
+import { getAllPokemons } from "../../Redux/actions";
 
 const LandingPage = () => {
+
+    const dispatch = useDispatch
+
+    useEffect(()=> {
+        dispatch(getAllPokemons())
+    })
+
     return (
         <div className={style.lading_container}>
             <div className={style.container}>    
