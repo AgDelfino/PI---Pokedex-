@@ -1,8 +1,8 @@
 import axios from 'axios'
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
+export const GET_ALL_TYPES = "GET_ALL_TYPES";
+export const SEARCH_POKEMON = "SEARCH_POKEMON"
 export const ERROR = "ERROR";
-// Una action es un objeto plano con dos props : type y payload
-// Redux Thunk es para poder crear actions async
 
 export function getAllPokemons () {
   
@@ -16,6 +16,33 @@ export function getAllPokemons () {
     })
     .catch(error => {
       console.log("ERROR DE CONEXIÓN");
+    })
+  }
+}
+
+export function getAllTypes () {
+  return function (dispatch){
+    axios.get('http://localhost3001/types')
+    .then(response => {
+      dispatch({
+        type: GET_ALL_TYPES,
+        payload: response.data
+      })
+    })
+    .catch(error => {
+      console.log("ERROR DE CONEXIÓN");
+    })
+  }
+}
+
+export function searchPokemon (pokeName) {
+  return function (dispatch){
+    axios.get(`http://localhost3001/pokemons?name=${pokeName}`)
+    .then(response => {
+      dispatch({
+        type: SEARCH_POKEMON,
+        payload: response.data
+      })
     })
   }
 }

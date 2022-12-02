@@ -1,22 +1,24 @@
 .lading_container{
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: flex-start;
    height: 100vh;
    flex-direction: column;
-   background-image: url('../../images/landing2.jpg');
+   background-image: url('../../images/landing2cort.jpg');
    background-position: center;
    background-size:cover;
    background-repeat:none;
 }
 
-
+.container {
+    margin-bottom: 20px;
+}
 
 .title{
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 50px;
     color: #ffce31;
-    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    text-shadow: -2px -2px 1px #373299, 2px 2px 1px #373299, -2px 2px 1px #373299, 2px -2px 1px #373299, 8px 9px 1px black;
     margin-bottom: 0;
 }
 
@@ -31,6 +33,7 @@
     color: #ffce31;
     background-color: #343099;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    cursor: pointer;
 }
 
 .landing_button:hover{

@@ -34,6 +34,18 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
+    background-image: url('../../images/fondoLogo.png');
+    background-size: contain;
+    background-repeat: none;
+    border-radius: 45px ;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+
+.nav_bar_right_container{
+    display: flex;
+    align-items: center;
 }
 
 .nav_bar_logo{
@@ -45,14 +57,14 @@
 
 
 .pokeball{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
+    width: 70px;
+    height: 75px;
     margin-top: 5px;
+    margin-right: 0px;
 }
 
 .pokemon{
-    width: 200px;
+    width: 250px;
     margin: 5px;
     margin-bottom: 10px;
 }

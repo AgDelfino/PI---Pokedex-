@@ -4,13 +4,45 @@
     justify-content: space-between;
     width: 250px;
     height: 350px;
-    background-image: url("../../images/card2.png");
+    background-image: url("../../images/card3.png");
     box-shadow: 5px 5px 5px #252525;
     margin-bottom: 25px;
     margin-left: 10px;
     position: relative;
     border-radius: 15px;
 }
+
+.electric{
+    background-image: url('../../images/Cards/electric.png');
+}
+.normal{
+    background-image: url('../../images/Cards/normal.png');
+}
+.fire{
+    background-image: url('../../images/Cards/fire.png');
+}
+.psychic{
+   background-image: url('../../images/Cards/psychic.png');
+}
+.fighting{
+   background-image: url('../../images/Cards/fighting.png');
+}
+.water{
+   background-image: url('../../images/Cards/water.png');
+}
+.grass{
+   background-image: url('../../images/Cards/grass.png');
+}
+.steel{
+   background-image: url('../../images/Cards/steel.png');
+}
+.dragon{
+   background-image: url('../../images/Cards/dragon.png');
+}
+.dark{
+   background-image: url('../../images/Cards/dark.png');
+}
+
 
 
 .card_container1{
@@ -49,15 +81,14 @@
 
 
 .card_title{
-    font-family: 'Pokemon Solid', sans-serif;
-    font-size: 20px;
+    font-family: var(--font-title);
+    font-size:22px;
     font-weight: bold;
     color: #ffce31; 
-    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    text-shadow: -2px -2px 1px #373299, 2px 2px 1px #373299, -2px 2px 1px #373299, 2px -2px 1px #373299, 6px 6px 6px black;
     width: 190px;
     height: 20px;
     text-align: left;
-
     border-radius: 5px;
 }
 
@@ -111,8 +142,8 @@
     background-color: rgb(227, 219, 219);
      width: 225px; 
     text-align: center;
-    margin-right: 5px;
-    margin-left: 170px;
+    margin-right: 6px;
+    margin-left: 162px;
     border: solid 1px black;
     border-radius: 5px; 
     height: 15px;   

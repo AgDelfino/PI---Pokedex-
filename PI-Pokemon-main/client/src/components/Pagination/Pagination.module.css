@@ -1,0 +1,84 @@
+.pages{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    list-style-type: none;
+}
+.pagination_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.pag_button{
+    display: flex;
+    padding: 0;
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #fec304;
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-shadow: 0 0 2px black;
+}
+
+.pokebot, .poketop{
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .2s ease-in-out transform;
+}
+
+.poketop{
+    background-image: url('../../images/poke-top.png');
+}
+.pokebot{
+    background-image: url('../../images/poke-bottom.png');
+}
+
+.pag_button:hover > .poketop{
+    transform: translateY(-25px) rotate(-20deg);
+}
+
+.pag_button:hover > .pokebot{
+    transform: translateY(10px) rotate(10deg)
+}
+
+.prev_container, .next_container{
+    background-color: transparent;
+    width: 4rem;   
+    border: none;
+    cursor: pointer;
+    transition: .2s ease-in-out transform;
+}
+
+.prev_container:hover {
+    transform: translateX(-5px);
+}
+
+.next_container:hover{
+    transform: translateX(5px);
+}
+
+.prev, .next {
+    color: #fec304 ;
+    fill: #fec304;
+    height: 4rem;
+    width: 5rem;
+    margin-left: -16px;
+    stroke: black;
+}
+
+
+

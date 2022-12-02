@@ -3,7 +3,7 @@ import style from './LandingPage.module.css'
 import { Link } from "react-router-dom";
 import pokedex from '../../images/pokedex.png'
 import { useDispatch } from "react-redux";
-import { getAllPokemons } from "../../Redux/actions";
+import { getAllPokemons, getAllTypes } from "../../Redux/actions";
 
 const LandingPage = () => {
 
@@ -11,7 +11,11 @@ const LandingPage = () => {
 
     useEffect(()=> {
         dispatch(getAllPokemons())
-    }, [dispatch])
+    }, [])
+
+    useEffect(() => {
+        dispatch(getAllTypes())
+    }, [])
 
     return (
         <div className={style.lading_container}>
@@ -22,7 +26,7 @@ const LandingPage = () => {
                 <img className={style.landing_img} src={pokedex} alt='Pokedex'/> 
             </div>
             <Link to='/pokemons'>
-                <button className={style.landing_button}>Let's Go</button>
+                <button className={style.landing_button} point>Let's Go</button>
             </Link>
         </div>
     )
