@@ -42,6 +42,37 @@
 .dark{
    background-image: url('../../images/Cards/dark.png');
 }
+.flying{
+   background-image: url('../../images/Cards/flying.png');
+}
+.poison{
+   background-image: url('../../images/Cards/poison.png');
+}
+.ground{
+   background-image: url('../../images/Cards/ground.png');
+}
+.rock{
+   background-image: url('../../images/Cards/rock.png');
+}
+.bug{
+   background-image: url('../../images/Cards/bug.png');
+}
+.ghost{
+   background-image: url('../../images/Cards/ghost.png');
+}
+.ice{
+   background-image: url('../../images/Cards/ice.png');
+}
+.fairy{
+   background-image: url('../../images/Cards/fairy.png');
+}
+/* .unknown{
+   background-image: url('../../images/Cards/unknown.png');
+} */
+.shadow{
+   background-image: url('../../images/Cards/shadow.png');
+}
+
 
 
 
@@ -139,13 +170,10 @@
     font-weight: bold;
     color: rgb(1, 1, 1);
     text-decoration: none;
-    background-color: rgb(227, 219, 219);
      width: 225px; 
     text-align: center;
     margin-right: 6px;
     margin-left: 162px;
-    border: solid 1px black;
-    border-radius: 5px; 
     height: 15px;   
     
 }

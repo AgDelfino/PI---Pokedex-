@@ -1,0 +1,104 @@
+.main_container{
+    background-color: rgb(55, 55, 122);
+    /* background: linear-gradient(rgb(25, 25, 30), rgb(55, 55, 122)); */
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    transform: translateX(300px);
+    transition: .5s ease-in-out transform;
+    padding: .5rem;
+    
+}
+.filters_container{
+   gap: 2rem;
+}
+
+.activeFilters{
+    transform: translateX(0);
+}
+
+.type_buttons{
+   width: 3rem;
+   height: 3rem;
+   background-size: cover;
+   background-color: transparent;
+   border: none;
+   margin: .5rem;
+   cursor: pointer;
+}
+
+.title_type{
+    color: white
+}
+
+.electric{
+    background-image: url('../../images/typesIcons/electric.png');
+}
+.normal{
+    background-image: url('../../images/typesIcons/normal.png');
+}
+.fire{
+    background-image: url('../../images/typesIcons/fire.png');
+}
+.psychic{
+   background-image: url('../../images/typesIcons/psychic.png');
+}
+.fighting{
+   background-image: url('../../images/typesIcons/fighting.png');
+}
+.water{
+   background-image: url('../../images/typesIcons/water.png');
+}
+.grass{
+   background-image: url('../../images/typesIcons/grass.png');
+}
+.steel{
+   background-image: url('../../images/typesIcons/steel.png');
+}
+.dragon{
+   background-image: url('../../images/typesIcons/dragon.png');
+}
+.dark{
+   background-image: url('../../images/typesIcons/dark.png');
+}
+.flying{
+   background-image: url('../../images/typesIcons/flying.png');
+}
+.poison{
+   background-image: url('../../images/typesIcons/poison.png');
+}
+.ground{
+   background-image: url('../../images/typesIcons/ground.png');
+}
+.rock{
+   background-image: url('../../images/typesIcons/rock.png');
+}
+.bug{
+   background-image: url('../../images/typesIcons/bug.png');
+}
+.ghost{
+   background-image: url('../../images/typesIcons/ghost.png');
+}
+.ice{
+   background-image: url('../../images/typesIcons/ice.png');
+}
+.fairy{
+   background-image: url('../../images/typesIcons/fairy.png');
+}
+.unknown{
+   background-image: url('../../images/typesIcons/unknown.png');
+}
+.shadow{
+   background-image: url('../../images/typesIcons/shadow.png');
+}
+
+
+
+
+
+
+
+

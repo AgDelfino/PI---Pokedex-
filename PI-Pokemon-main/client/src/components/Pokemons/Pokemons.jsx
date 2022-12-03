@@ -6,17 +6,6 @@ import loading from '../../images/PikachuLoad.gif'
 
 const Pokemons = ({ pokes }) => {
 
-  let currentPage = parseInt(useSelector((state) => state.currentPage))
-  let totalPokemons = parseInt(useSelector((state)=> state.totalPokemons))
-  let itemsByPage = parseInt(useSelector((state) => state.itemsByPage))
-
-
-  let start = (currentPage - 1) * itemsByPage
-  let end = start + itemsByPage
-  if(end > totalPokemons) end = totalPokemons
-  if(start < 0) start = 0
-  
-
   return (
     <div className={styles.container_cards}>
       {
@@ -29,7 +18,7 @@ const Pokemons = ({ pokes }) => {
               name={pokemon.name}
               attack={pokemon.attack}
               image={pokemon.image}
-              type={pokemon.type}
+              type={pokemon.type || pokemon.types}
             />
           </Link>
         );

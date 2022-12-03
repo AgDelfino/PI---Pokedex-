@@ -1,14 +1,14 @@
 import {
   GET_ALL_POKEMONS,
-  ERROR,
+  SEARCH_ERROR,
   GET_ALL_TYPES,
   SEARCH_POKEMON,
+  RESET_POKEMONS,
 } from "./actions";
 
 const initialState = {
   pokemons: [],
-  pokemonFound: {},
-  error: {},
+  searchError: {},
   types: [],
 };
 
@@ -18,6 +18,7 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: action.payload,
+        searchError: {},
       };
     case GET_ALL_TYPES:
       return {
@@ -27,13 +28,19 @@ export default function rootReducer(state = initialState, action) {
     case SEARCH_POKEMON:
       return {
         ...state,
-        pokemonFound: action.payload,
+        pokemons: [action.payload],
+        searchError: {},
       };
-    case ERROR:
+    case SEARCH_ERROR:
       return {
         ...state,
-        error: action.payload,
+        searchError: action.payload,
       };
+    case RESET_POKEMONS: 
+    return {
+      ...state,
+      pokemons: action.payload
+    }
     default:
       return { ...state };
   }

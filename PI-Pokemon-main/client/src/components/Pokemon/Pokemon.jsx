@@ -1,10 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styles from "./Pokemon.module.css";
 
 const Pokemon = ({ id, name, image, attack, type }) => {
-
-console.log(type);
 
   return (
     <div className={`${styles.card_container} ${styles[type[0].name]}`} key={id} >

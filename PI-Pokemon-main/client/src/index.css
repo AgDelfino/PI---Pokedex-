@@ -12,6 +12,11 @@
   --font-title: "Adventure", sans-serif;
 }
 
+html, *, *::before,*::after{
+  box-sizing: border-box;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -21,7 +26,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../src/images/fondoLogoCort.jpg');
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
+  padding-bottom: 4rem;
+  background-color: #7fac71;
+
 }
 
 code {

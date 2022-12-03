@@ -9,8 +9,10 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
-
 
 .pag_button{
     display: flex;
@@ -30,6 +32,39 @@
     text-shadow: 0 0 2px black;
 }
 
+.active_top{
+    transform: translateY(-25px) rotate(-20deg);
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .2s ease-in-out transform;
+    background-image: url('../../images/poke-top.png');
+}
+
+.active_bot{
+    transform: translateY(10px) rotate(10deg);
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .2s ease-in-out transform;
+    background-image: url('../../images/poke-bottom.png');
+}
+
+.pag_button:hover > .poketop{
+    transform: translateY(-25px) rotate(-20deg);
+}
+
+.pag_button:hover > .pokebot{
+    transform: translateY(10px) rotate(10deg)
+}
+
+
 .pokebot, .poketop{
     position: absolute;
     background-size: cover;
@@ -46,21 +81,21 @@
 .pokebot{
     background-image: url('../../images/poke-bottom.png');
 }
-
-.pag_button:hover > .poketop{
-    transform: translateY(-25px) rotate(-20deg);
-}
-
-.pag_button:hover > .pokebot{
-    transform: translateY(10px) rotate(10deg)
-}
-
 .prev_container, .next_container{
     background-color: transparent;
     width: 4rem;   
     border: none;
     cursor: pointer;
     transition: .2s ease-in-out transform;
+}
+
+@keyframes nextArrow {
+
+}
+
+
+@keyframes prevArrow {
+    
 }
 
 .prev_container:hover {

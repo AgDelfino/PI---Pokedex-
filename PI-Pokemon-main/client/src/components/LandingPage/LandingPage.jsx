@@ -9,13 +9,11 @@ const LandingPage = () => {
 
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-        dispatch(getAllPokemons())
-    }, [])
-
     useEffect(() => {
+        dispatch(getAllPokemons())
         dispatch(getAllTypes())
     }, [])
+
 
     return (
         <div className={style.lading_container}>

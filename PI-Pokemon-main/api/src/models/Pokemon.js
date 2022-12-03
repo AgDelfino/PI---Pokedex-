@@ -69,7 +69,7 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
-        defaultValue: 'https://pm1.narvii.com/6351/04068e1800708e5acac65376ce124da982b9d188_hq.jpg'
+        defaultValue: 'https://i.ytimg.com/vi/ZrybriFT0_8/maxresdefault.jpg',
       }
     },
     {

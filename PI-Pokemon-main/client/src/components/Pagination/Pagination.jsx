@@ -25,7 +25,10 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
       <ul className={styles.pages}>
         {pages.length ? (
           <>
-            <button className={styles.prev_container} onClick={() => prevHandler()}>
+            <button
+              className={styles.prev_container}
+              onClick={() => prevHandler()}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={styles.prev}
@@ -44,21 +47,28 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
                 <path d="M18 15v-6"></path>
               </svg>
             </button>
-            {pages.map((page) => {
+            {pages.map((p) => {
               return (
-                <li key={page}>
+                <li key={p}>
                   <div
                     className={styles.pag_button}
-                    onClick={() => paginator(page)}
+                    onClick={() => {
+                      paginator(p);
+                    }}
                   >
-                    <div className={styles.poketop}></div>
-                    {page}
-                    <div className={styles.pokebot}></div>
+                    <div className={page === p ? `${styles.active_top}` : `${styles.poketop}`}></div>
+                    {p}
+                    {console.log(page === p)
+                    }
+                    <div className={page === p ? `${styles.active_bot}` : `${styles.pokebot}`}></div>
                   </div>
                 </li>
               );
             })}
-            <button className={styles.next_container} onClick={() => nextHandler()}>
+            <button
+              className={styles.next_container}
+              onClick={() => nextHandler()}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={styles.next}
