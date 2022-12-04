@@ -13,7 +13,11 @@ import {
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 import Filters from "../Filters/Filters.jsx";
-import { filterPokemons, sortPokemons , sortDBorAPI} from "../../services/services.js";
+import {
+  filterPokemons,
+  sortPokemons,
+  filterPokemonsApiOrDb,
+} from "../../services/services.js";
 
 const Home = () => {
   const pokemonsGlobal = useSelector((state) => state.pokemons);
@@ -22,8 +26,8 @@ const Home = () => {
   const [filters, setFilters] = useState({
     active: false,
     typeFilter: ["", ""],
-    sortFilter: '',
-    dbOrApiFilter: '',
+    sortFilter: "",
+    filterApiOrDb: '',
   });
   const filterError = useSelector((state) => state.filterError);
 
@@ -39,17 +43,23 @@ const Home = () => {
     dispatch(getAllTypes());
   }, []);
 
+  
   useEffect(() => {
+    let newPokemon = pokemonsGlobal;
     try {
-      const newPokemons = filterPokemons(pokemonsGlobal, filters);
-      setPokemons(newPokemons);
-      if(filters.sortFilter){
-        setPokemons(sortPokemons(newPokemons, filters))
+      if(filters.filterApiOrDb){
+        newPokemon = filterPokemonsApiOrDb(newPokemon, filters)
       }
-      if(filters.dbOrApiFilter){
-        setPokemons(sortDBorAPI(newPokemons, filters))
+
+      newPokemon = filterPokemons(newPokemon, filters);
+      
+      if (filters.sortFilter) {
+      newPokemon =  sortPokemons(newPokemon, filters);
       }
-      dispatch(setFilterError({}))
+
+      setPokemons(newPokemon)
+
+      dispatch(setFilterError({}));
     } catch (error) {
       dispatch(setFilterError(error));
     }

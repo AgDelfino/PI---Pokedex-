@@ -64,6 +64,10 @@
    justify-content: space-between;
 }
 
+.filter_button_active{
+   background-color: yellow;
+}
+
 .title_type{
     color: white
 }

@@ -70,12 +70,15 @@ export function sortPokemons (pokemons, {sortFilter}){
     }
 }
 
-export function sortDBorAPI(pokemons, {dbOrApiFilter}) {
-    if(dbOrApiFilter === 'API') {
-      return [...pokemons].filter(poke => !isNaN(poke.id))
-    }
-    if(dbOrApiFilter === 'DB'){
+export function filterPokemonsApiOrDb (pokemons, {filterApiOrDb}) {
+    if(filterApiOrDb === 'DB'){
       return [...pokemons].filter(poke => isNaN(poke.id))
     }
-  }
+    if(filterApiOrDb === 'API'){
+      return [...pokemons].filter(poke => !isNaN(poke.id))
+    }
+    if(filterApiOrDb === 'ALL'){
+      return [...pokemons]
+    }
+}
 

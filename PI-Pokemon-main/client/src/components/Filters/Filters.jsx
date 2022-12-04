@@ -5,25 +5,23 @@ import styles from "./Filters.module.css";
 const Filters = ({ filters, setFilters, paginator }) => {
   const types = useSelector((state) => state.types);
 
-  const sortDbApiHandler = (e) => {
-   const sortDbApi = e.target.id;
-   
-   if(filters.dbOrApiFilter === sortDbApi){
+ const apiOrDbHandler = (e) => {
+   const filter = e.target.id
+   if(filters.filterApiOrDb === filter){
     return setFilters((state) => {
       return {
         ...state,
-        dbOrApiFilter: ''
+        filterApiOrDb: '',
       }
     })
    }
    setFilters((state) => {
     return {
-      ...state,
-      dbOrApiFilter: sortDbApi
+      ...state, 
+      filterApiOrDb: filter
     }
    })
-
-  }
+ }
 
   const sortHandler = (e) => {
     const sort = e.target.id;
@@ -139,11 +137,11 @@ const Filters = ({ filters, setFilters, paginator }) => {
       </div>
       <h3 className={styles.title_type}>Select by: </h3>
       <div className={styles.db_api_buttons_container}>
-        <button id="DB"  onClick={sortDbApiHandler}>Data Base</button>
-        <button id="API" >API</button>
-        <button id="ALL">All Pokemons</button>
+        <button id="DB" className={`${filters.filterApiOrDb === "DB" ? styles.filter_button_active : null}`} onClick={apiOrDbHandler}>Data Base</button>
+        <button id="API" onClick={apiOrDbHandler} className={`${filters.filterApiOrDb === "API" ? styles.filter_button_active : null}`} >API</button>
+        <button id="ALL" onClick={apiOrDbHandler}className={`${filters.filterApiOrDb === "ALL" ? styles.filter_button_active : null}`}  >All Pokemons</button>
       </div>
-    </div>
+    </div>  
   );
 };
 
