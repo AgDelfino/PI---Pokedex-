@@ -1,31 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../NavBar/NavBar.jsx";
-import style from "./Home.module.css";
+import styles from "./Home.module.css";
 import Pokemons from "../Pokemons/Pokemons.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
 import {
   getAllPokemons,
   getAllTypes,
   resetPokemons,
+  setFilterError,
 } from "../../Redux/actions";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import styles from "../Home/Home.module.css";
 import NotFound from "../NotFound/NotFound.jsx";
 import Filters from "../Filters/Filters.jsx";
+import { filterPokemons } from "../../services/services.js";
 
 const Home = () => {
-  const pokemons = useSelector((state) => state.pokemons);
+  const pokemonsGlobal = useSelector((state) => state.pokemons);
+  const [pokemons, setPokemons] = useState([]);
   const searchError = useSelector((state) => state.searchError);
-  const types = useSelector((state) => state.types);
-  const [filters, setFilters] = useState(false);
+  const [filters, setFilters] = useState({
+    active: false,
+    typeFilter: ["", ""],
+  });
+  const filterError = useSelector((state) => state.filterError);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setPokemons([...pokemonsGlobal]);
+  }, [pokemonsGlobal]);
+
+  useEffect(() => {
+    if (filters.active) return;
     dispatch(getAllPokemons());
     dispatch(getAllTypes());
   }, []);
+
+  useEffect(() => {
+    try {
+      const newPokemons = filterPokemons(pokemonsGlobal, filters);
+      setPokemons(newPokemons);
+      dispatch(setFilterError({}))
+    } catch (error) {
+      dispatch(setFilterError(error));
+    }
+  }, [filters]);
 
   const [page, setPage] = useState(1);
   const pokemonsByPage = 12;
@@ -44,14 +64,25 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <div className={style.searchbar_container}>
-        <button onClick={() => setFilters((state) => !state)}>ICONO</button>
+      <div className={styles.searchbar_container}>
         <button onClick={resetHandler}>RESET</button>
         <SearchBar paginator={paginated} />
+        <button
+          className={styles.filters_button}
+          onClick={() =>
+            setFilters((state) => ({ ...state, active: !state.active }))
+          }
+        >
+          ICONO
+        </button>
       </div>
-      <Filters filters={filters}/>
-      {searchError.error ? (
-        <NotFound msg={searchError.error} />
+      <Filters
+        filters={filters}
+        setFilters={setFilters}
+        paginator={paginated}
+      />
+      {searchError.error || filterError.error ? (
+        <NotFound msg={searchError.error || filterError.error} />
       ) : (
         <>
           <Pagination
@@ -60,7 +91,7 @@ const Home = () => {
             paginator={paginated}
             page={page}
           />
-          <div className={style.poke_gallery}>
+          <div className={styles.poke_gallery}>
             <Pokemons pokes={showPokemons} />
           </div>
         </>

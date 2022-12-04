@@ -11,10 +11,10 @@ const NotFound = ({ msg }) => {
       </div>
       <div className={styles.img_container}>
         <div>
-          <img src={notFoundPik} />
+          <img src={notFoundPik} alt=''/>
         </div>
         <div>
-          <img className={styles.bulba} src={notFoundBulb} />
+          <img className={styles.bulba} src={notFoundBulb} alt=''/>
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import leftLogo from "../../images/logo_gif.png";
 import style from "./NavBar.module.css";
 import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
-import SearchBar from "../SearchBar/SearchBar.jsx";
 
 const NavBar = () => {
   return (

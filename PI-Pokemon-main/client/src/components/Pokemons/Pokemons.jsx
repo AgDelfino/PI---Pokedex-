@@ -1,7 +1,6 @@
 import Pokemon from "../Pokemon/Pokemon.jsx";
 import styles from "./Pokemons.module.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import loading from '../../images/PikachuLoad.gif'
 
 const Pokemons = ({ pokes }) => {

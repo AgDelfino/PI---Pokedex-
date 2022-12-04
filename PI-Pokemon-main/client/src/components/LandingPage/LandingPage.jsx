@@ -12,7 +12,7 @@ const LandingPage = () => {
     useEffect(() => {
         dispatch(getAllPokemons())
         dispatch(getAllTypes())
-    }, [])
+    }, [dispatch])
 
 
     return (

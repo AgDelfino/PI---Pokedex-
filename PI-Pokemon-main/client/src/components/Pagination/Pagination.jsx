@@ -1,8 +1,13 @@
 import styles from "./Pagination.module.css";
-import top from "../../images/poke-top.png";
-import bot from "../../images/poke-bottom.png";
 
 const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
+
+  const handleArrowNavigation = (event) => {
+    if (event.key === 'ArrowLeft') prevHandler();
+    if (event.key === 'ArrowRight') nextHandler();
+  };
+document.onkeyup = handleArrowNavigation;
+
   let pages = [];
   for (let i = 0; i < Math.ceil(pokemons / pokemonsByPage); i++) {
     pages.push(i + 1);
@@ -27,7 +32,7 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
           <>
             <button
               className={styles.prev_container}
-              onClick={() => prevHandler()}
+              onClick={() => prevHandler() }
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +40,11 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
                 width="36"
                 height="36"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M12 15v3.586a1 1 0 0 1 -1.707 .707l-6.586 -6.586a1 1 0 0 1 0 -1.414l6.586 -6.586a1 1 0 0 1 1.707 .707v3.586h3v6h-3z"></path>
@@ -58,8 +63,6 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
                   >
                     <div className={page === p ? `${styles.active_top}` : `${styles.poketop}`}></div>
                     {p}
-                    {console.log(page === p)
-                    }
                     <div className={page === p ? `${styles.active_bot}` : `${styles.pokebot}`}></div>
                   </div>
                 </li>
@@ -75,11 +78,11 @@ const Pagination = ({ pokemons, pokemonsByPage, paginator, page }) => {
                 width="36"
                 height="36"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>

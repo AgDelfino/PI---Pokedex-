@@ -1,4 +1,5 @@
 .pages{
+    padding: 0;
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -18,8 +19,8 @@
     display: flex;
     padding: 0;
     position: relative;
-    width: 4rem;
-    height: 4rem;
+    width: 44px;
+    height: 44px;
     flex-direction: column;
     background-color: transparent;
     border: none;
@@ -27,12 +28,14 @@
     align-items: center;
     color: #fec304;
     font-family: var(--font-title);
-    font-size: 1.8rem;
+    font-size: 30px;
     font-weight: 500;
     text-shadow: 0 0 2px black;
 }
 
 .active_top{
+    height: 44px;
+    width: 44px;
     transform: translateY(-25px) rotate(-20deg);
     position: absolute;
     background-size: cover;
@@ -45,6 +48,8 @@
 }
 
 .active_bot{
+    height: 44px;
+    width: 44px;
     transform: translateY(10px) rotate(10deg);
     position: absolute;
     background-size: cover;
@@ -66,6 +71,8 @@
 
 
 .pokebot, .poketop{
+    height: 44px;
+    width: 44px;
     position: absolute;
     background-size: cover;
     top: 0;
@@ -82,8 +89,12 @@
     background-image: url('../../images/poke-bottom.png');
 }
 .prev_container, .next_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
-    width: 4rem;   
+    width: 4.2rem;
+    height: 44px;
     border: none;
     cursor: pointer;
     transition: .2s ease-in-out transform;
@@ -108,10 +119,9 @@
 
 .prev, .next {
     color: #fec304 ;
+    width: 4.2rem;
+    height: 4.2rem;
     fill: #fec304;
-    height: 4rem;
-    width: 5rem;
-    margin-left: -16px;
     stroke: black;
 }
 
