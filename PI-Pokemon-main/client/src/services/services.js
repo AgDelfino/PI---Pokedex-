@@ -67,7 +67,15 @@ export function sortPokemons (pokemons, {sortFilter}){
     }
     if(sortFilter === "ATK-"){
       return [...pokemons].sort((a,b) => b.attack-a.attack)
-    }    
+    }
 }
 
+export function sortDBorAPI(pokemons, {dbOrApiFilter}) {
+    if(dbOrApiFilter === 'API') {
+      return [...pokemons].filter(poke => !isNaN(poke.id))
+    }
+    if(dbOrApiFilter === 'DB'){
+      return [...pokemons].filter(poke => isNaN(poke.id))
+    }
+  }
 

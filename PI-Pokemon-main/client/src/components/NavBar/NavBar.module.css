@@ -115,6 +115,7 @@
 .opening{
     width: 5rem;
     height: 5rem;
+    border-radius: 10px;
     background-image: url('../../images/pikaMlogo.png');
     background-position: center;
     background-size: cover;

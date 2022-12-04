@@ -6,6 +6,7 @@ import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
 import { useState } from "react";
 import audio from '../../audio/AtrapalosYa.mp3'
+import ReactHowler from 'react-howler'
 
 const NavBar = () => {
 
@@ -13,7 +14,9 @@ const NavBar = () => {
 
   return (
     <div className={style.nav_bar}>
-      <audio src={audio} autoPlay muted={muted} loop></audio>
+      {/* <audio src={audio} autoPlay muted={muted} loop></audio> */}
+      <h4>CLICK ME</h4>
+      <ReactHowler src={audio} playing={muted} volume="0.4"></ReactHowler>
             <button className={style.opening} onClick={() => {
                 setMuted(!muted)
             }}></button>

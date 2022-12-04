@@ -5,6 +5,26 @@ import styles from "./Filters.module.css";
 const Filters = ({ filters, setFilters, paginator }) => {
   const types = useSelector((state) => state.types);
 
+  const sortDbApiHandler = (e) => {
+   const sortDbApi = e.target.id;
+   
+   if(filters.dbOrApiFilter === sortDbApi){
+    return setFilters((state) => {
+      return {
+        ...state,
+        dbOrApiFilter: ''
+      }
+    })
+   }
+   setFilters((state) => {
+    return {
+      ...state,
+      dbOrApiFilter: sortDbApi
+    }
+   })
+
+  }
+
   const sortHandler = (e) => {
     const sort = e.target.id;
 
@@ -79,42 +99,50 @@ const Filters = ({ filters, setFilters, paginator }) => {
         })}
       </div>
       <h3 className={styles.title_type}>Order by: </h3>
-      <button
-        className={`${styles.sort_button} ${
-          filters.sortFilter === "A-Z" ? styles.sort_active : null
-        }`}
-        id="A-Z"
-        onClick={sortHandler}
-      >
-        A-Z
-      </button>
-      <button
-        className={`${styles.sort_button} ${
-          filters.sortFilter === "Z-A" ? styles.sort_active : null
-        }`}
-        id="Z-A"
-        onClick={sortHandler}
-      >
-        Z-A
-      </button>
-      <button
-        className={`${styles.sort_button} ${
-          filters.sortFilter === "ATK+" ? styles.sort_active : null
-        }`}
-        id="ATK+"
-        onClick={sortHandler}
-      >
-        ATK +
-      </button>
-      <button
-        className={`${styles.sort_button} ${
-          filters.sortFilter === "ATK-" ? styles.sort_active : null
-        }`}
-        id="ATK-"
-        onClick={sortHandler}
-      >
-        ATK -
-      </button>
+      <div className={styles.sort_buttons_container}>
+        <button
+          className={`${styles.sort_button} ${
+            filters.sortFilter === "A-Z" ? styles.sort_active : null
+          }`}
+          id="A-Z"
+          onClick={sortHandler}
+        >
+          A-Z
+        </button>
+        <button
+          className={`${styles.sort_button} ${
+            filters.sortFilter === "Z-A" ? styles.sort_active : null
+          }`}
+          id="Z-A"
+          onClick={sortHandler}
+        >
+          Z-A
+        </button>
+        <button
+          className={`${styles.sort_button} ${
+            filters.sortFilter === "ATK-" ? styles.sort_active : null
+          }`}
+          id="ATK-"
+          onClick={sortHandler}
+        >
+          Mayor ATK
+        </button>
+        <button
+          className={`${styles.sort_button} ${
+            filters.sortFilter === "ATK+" ? styles.sort_active : null
+          }`}
+          id="ATK+"
+          onClick={sortHandler}
+        >
+          Menor ATK
+        </button>
+      </div>
+      <h3 className={styles.title_type}>Select by: </h3>
+      <div className={styles.db_api_buttons_container}>
+        <button id="DB"  onClick={sortDbApiHandler}>Data Base</button>
+        <button id="API" >API</button>
+        <button id="ALL">All Pokemons</button>
+      </div>
     </div>
   );
 };

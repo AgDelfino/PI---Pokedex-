@@ -1,6 +1,7 @@
 .main_container{
     background-color: rgb(55, 55, 122);
-    background: linear-gradient(rgba(25, 25, 30, 0.91), rgb(55, 55, 122));
+    background: linear-gradient(rgba(25, 25, 30, 0.91), rgba(55, 55, 122, 0.87));
+    backdrop-filter: blur(4px);
     position: fixed;
     height: 100%;
     width: 300px;
@@ -42,6 +43,11 @@
    border-radius: 10px
 }
 
+.sort_buttons_container{
+   display: flex;
+   justify-content: space-between;
+}
+
 .sort_button{
    background-color: white;
    width: 3rem;
@@ -51,6 +57,11 @@
 
 .sort_active{
    background-color: yellow;
+}
+
+.db_api_buttons_container{
+   display: flex;
+   justify-content: space-between;
 }
 
 .title_type{
