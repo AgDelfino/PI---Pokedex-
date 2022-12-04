@@ -1,6 +1,6 @@
 .main_container{
     background-color: rgb(55, 55, 122);
-    /* background: linear-gradient(rgb(25, 25, 30), rgb(55, 55, 122)); */
+    background: linear-gradient(rgba(25, 25, 30, 0.91), rgb(55, 55, 122));
     position: fixed;
     height: 100%;
     width: 300px;
@@ -10,6 +10,7 @@
     transform: translateX(300px);
     transition: .5s ease-in-out transform;
     padding: .5rem;
+    opacity: 5px;
     
 }
 .filters_container{
@@ -28,11 +29,28 @@
    border: none;
    margin: .5rem;
    cursor: pointer;
-   transition: .5s ease-in-out all;
+   transition: .3s ease-in-out all;
 }
+
+.type_buttons:hover{
+   background-color: #fec304;
+   border-radius: 10px;
+}
+
 .active_type{
    background-color: beige;
    border-radius: 10px
+}
+
+.sort_button{
+   background-color: white;
+   width: 3rem;
+   height: 3rem;
+   transition: .3s ease-in-out all;
+}
+
+.sort_active{
+   background-color: yellow;
 }
 
 .title_type{

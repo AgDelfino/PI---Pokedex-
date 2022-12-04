@@ -54,3 +54,20 @@ export function filterPokemons(pokemons, { typeFilter }) {
     return filteredPokemons
   }
 }
+
+export function sortPokemons (pokemons, {sortFilter}){
+    if(sortFilter === "A-Z"){
+      return [...pokemons].sort((a,b) => a.name.localeCompare(b.name))
+    }
+    if(sortFilter === "Z-A"){
+      return [...pokemons].sort((a,b) => b.name.localeCompare(a.name))
+    }
+    if(sortFilter === "ATK+"){
+      return [...pokemons].sort((a,b) => a.attack-b.attack)
+    }
+    if(sortFilter === "ATK-"){
+      return [...pokemons].sort((a,b) => b.attack-a.attack)
+    }    
+}
+
+

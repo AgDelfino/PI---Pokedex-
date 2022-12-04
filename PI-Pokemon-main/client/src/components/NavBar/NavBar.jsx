@@ -4,10 +4,19 @@ import leftLogo from "../../images/logo_gif.png";
 import style from "./NavBar.module.css";
 import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
+import { useState } from "react";
+import audio from '../../audio/AtrapalosYa.mp3'
 
 const NavBar = () => {
+
+  const [muted, setMuted] = useState(false)
+
   return (
     <div className={style.nav_bar}>
+      <audio src={audio} autoPlay muted={muted} loop></audio>
+            <button className={style.opening} onClick={() => {
+                setMuted(!muted)
+            }}></button>
       <div className={style.nav_bar_container}>
         <div className={style.nav_bar_left}>
           <Link to="/">

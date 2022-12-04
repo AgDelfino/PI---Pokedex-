@@ -112,3 +112,28 @@
 	left: 35px
 }
 
+.opening{
+    width: 5rem;
+    height: 5rem;
+    background-image: url('../../images/pikaMlogo.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    animation: alternate;
+    animation-name: pikaMusic;
+    animation-iteration-count: infinite;
+    animation-duration: .6s;
+    cursor: pointer;
+    
+}
+
+@keyframes pikaMusic {
+    from {
+        transform: rotate(15deg);
+    }
+    to {
+        transform: rotate(-15deg);
+    }
+}

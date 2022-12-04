@@ -13,7 +13,7 @@ import {
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 import Filters from "../Filters/Filters.jsx";
-import { filterPokemons } from "../../services/services.js";
+import { filterPokemons, sortPokemons } from "../../services/services.js";
 
 const Home = () => {
   const pokemonsGlobal = useSelector((state) => state.pokemons);
@@ -22,6 +22,7 @@ const Home = () => {
   const [filters, setFilters] = useState({
     active: false,
     typeFilter: ["", ""],
+    sortFilter: '',
   });
   const filterError = useSelector((state) => state.filterError);
 
@@ -44,6 +45,9 @@ const Home = () => {
       dispatch(setFilterError({}))
     } catch (error) {
       dispatch(setFilterError(error));
+    }
+    if(filters.sortFilter){
+      setPokemons(sortPokemons(pokemonsGlobal, filters))
     }
   }, [filters]);
 
