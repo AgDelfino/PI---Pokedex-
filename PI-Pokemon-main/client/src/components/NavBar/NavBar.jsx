@@ -14,9 +14,9 @@ const NavBar = () => {
 
   return (
     <div className={style.nav_bar}>
-      {/* <audio src={audio} autoPlay muted={muted} loop></audio> */}
+      {/* <audio src={audio} autoPlay muted={muted} loop></audio> en caso de que no pueda usar Howler*/} 
       <h4>CLICK ME</h4>
-      <ReactHowler src={audio} playing={muted} volume="0.4"></ReactHowler>
+      <ReactHowler src={audio} playing={muted} volume="0.3"></ReactHowler>
             <button className={style.opening} onClick={() => {
                 setMuted(!muted)
             }}></button>

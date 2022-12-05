@@ -1,12 +1,13 @@
 import axios from "axios";
+import { bindActionCreators } from "redux";
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
 export const GET_ALL_TYPES = "GET_ALL_TYPES";
 export const SEARCH_POKEMON = "SEARCH_POKEMON";
 export const ERROR = "ERROR";
 export const SEARCH_ERROR = "SEARCH_ERROR";
 export const RESET_POKEMONS = "RESET_POKEMONS";
-export const FILTER_ERROR = "FILTER_ERROR"
-
+export const FILTER_ERROR = "FILTER_ERROR";
+export const GET_POKEMONS_DETAILS = "GET_POKEMONS_ID";
 
 export function getAllPokemons() {
   return function (dispatch) {
@@ -21,6 +22,20 @@ export function getAllPokemons() {
       .catch((error) => {
         console.log("ERROR DE CONEXIÓN");
       });
+  };
+}
+
+export function getPokemonsByID(id) {
+  return async function (dispatch) {
+    try {
+      const pokeDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
+      return dispatch({
+        type: GET_POKEMONS_DETAILS,
+        payload: pokeDetail.data
+      })
+    } catch (error) {
+      return {msg: error.message}
+    }
   };
 }
 
@@ -67,9 +82,9 @@ export function resetPokemons() {
   };
 }
 
-export function setFilterError (error) {
+export function setFilterError(error) {
   return {
     type: FILTER_ERROR,
     payload: error,
-  }
+  };
 }

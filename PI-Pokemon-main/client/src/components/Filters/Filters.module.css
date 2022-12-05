@@ -23,6 +23,7 @@
 }
 
 .type_buttons{
+   position: relative;
    width: 3rem;
    height: 3rem;
    background-size: cover;
@@ -31,11 +32,11 @@
    margin: .5rem;
    cursor: pointer;
    transition: .3s ease-in-out all;
-}
+}  
 
 .type_buttons:hover{
    background-color: #fec304;
-   border-radius: 10px;
+   border-radius: 35%;
 }
 
 .active_type{

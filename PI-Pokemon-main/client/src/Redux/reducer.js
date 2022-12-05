@@ -5,11 +5,13 @@ import {
   SEARCH_POKEMON,
   RESET_POKEMONS,
   FILTER_ERROR,
+  GET_POKEMONS_DETAILS
 } from "./actions";
 
 
 const initialState = {
   pokemons: [],
+  pokemonDetails: [],
   searchError: {},
   filterError: {},
   types: [],
@@ -28,6 +30,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         types: action.payload,
       };
+    case GET_POKEMONS_DETAILS: 
+      return {
+        ...state,
+        pokemonDetails: action.payload
+      }
     case SEARCH_POKEMON:
       return {
         ...state,
