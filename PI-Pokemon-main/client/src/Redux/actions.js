@@ -1,5 +1,4 @@
 import axios from "axios";
-import { bindActionCreators } from "redux";
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
 export const GET_ALL_TYPES = "GET_ALL_TYPES";
 export const SEARCH_POKEMON = "SEARCH_POKEMON";
@@ -8,6 +7,7 @@ export const SEARCH_ERROR = "SEARCH_ERROR";
 export const RESET_POKEMONS = "RESET_POKEMONS";
 export const FILTER_ERROR = "FILTER_ERROR";
 export const GET_POKEMONS_DETAILS = "GET_POKEMONS_ID";
+export const RESET_DETAILS = "RESET_DETAILS"
 
 export function getAllPokemons() {
   return function (dispatch) {
@@ -87,4 +87,10 @@ export function setFilterError(error) {
     type: FILTER_ERROR,
     payload: error,
   };
+}
+
+export function resetDetails() {
+  return {
+    type: RESET_DETAILS,
+  }
 }

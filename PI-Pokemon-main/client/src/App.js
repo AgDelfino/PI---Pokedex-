@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Home from './components/Home/Home.jsx'
 import Details from "./components/Details/Details";
+import Create from "./components/Create/Create";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       <Route exact path='/pokemons/:id'>
         <Details/>
       </Route>
+      <Route exact path='/create'>
+        <Create/>
+        </Route> 
     </div>
   );
 }

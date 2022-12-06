@@ -5,18 +5,16 @@ import style from "./NavBar.module.css";
 import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
 import { useState } from "react";
-import audio from '../../audio/AtrapalosYa.mp3'
-import ReactHowler from 'react-howler'
+import audio from '../../audio/AtrapalosYa.mp3'  
 
 const NavBar = () => {
 
-  const [muted, setMuted] = useState(false)
+  const [muted, setMuted] = useState(true)
 
   return (
     <div className={style.nav_bar}>
-      {/* <audio src={audio} autoPlay muted={muted} loop></audio> en caso de que no pueda usar Howler*/} 
+      <audio src={audio} autoPlay muted={muted} loop></audio>
       <h4>CLICK ME</h4>
-      <ReactHowler src={audio} playing={muted} volume="0.3"></ReactHowler>
             <button className={style.opening} onClick={() => {
                 setMuted(!muted)
             }}></button>
