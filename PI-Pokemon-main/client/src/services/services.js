@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function filterPokemons(pokemons, { typeFilter }) {
       
   if (!typeFilter[0] && !typeFilter[1]) {
@@ -82,3 +84,19 @@ export function filterPokemonsApiOrDb (pokemons, {filterApiOrDb}) {
     }
 }
 
+export function validateForm (input) {
+
+    if(input.name > 20) {
+      throw "Max characters exceeded"
+    }
+
+    const numValues = Object.values(input).slice(1, -1)
+    if(!numValues.every(value => value < 1000  && value  != 0 && !isNaN(value))) {
+      throw "INVALID VALUES"
+    }
+    return "POKEMON CREATED"
+  } 
+
+export async function sendForm (input) {
+  const send = await axios.post('http://localhost:3001/pokemons', input)
+}

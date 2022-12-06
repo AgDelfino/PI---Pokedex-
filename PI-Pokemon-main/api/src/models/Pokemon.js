@@ -69,7 +69,7 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
-        defaultValue: 'https://i.ytimg.com/vi/ZrybriFT0_8/maxresdefault.jpg',
+        defaultValue: 'https://i.imgur.com/bZfY4Fr.png',
       }
     },
     {

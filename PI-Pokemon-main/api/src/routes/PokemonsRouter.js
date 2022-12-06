@@ -79,7 +79,7 @@ PokemonsRouter.get("/:pokeId", async (req, res) => {
 
 PokemonsRouter.post("/", async (req, res) => {
   try {
-    const { name, hp, attack, defense, speed, height, weight, types, image } =
+    const { name, hp, attack, defense, speed, height, weight, types } =
       req.body;
 
     if (
@@ -90,8 +90,7 @@ PokemonsRouter.post("/", async (req, res) => {
       !speed ||
       !height ||
       !weight ||
-      !types ||
-      !image
+      !types.length
     ) {
       return res.status(404).send({ error: "All fields are required" });
     }
@@ -103,7 +102,6 @@ PokemonsRouter.post("/", async (req, res) => {
       speed: parseInt(speed),
       height: parseInt(height),
       weight: parseInt(weight),
-      image: image,
     });
     const typesDb = await Type.findAll({ where: { name: types } });
     newPokemon.addTypes(typesDb);

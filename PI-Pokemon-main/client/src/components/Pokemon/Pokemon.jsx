@@ -1,10 +1,16 @@
 import React from "react";
+import { useEffect } from "react";
 import styles from "./Pokemon.module.css";
 
 const Pokemon = ({ id, name, image, attack, type }) => {
 
+
+  useEffect(()=> {
+    console.log(type[0]);
+  }, [type])
+
   return (
-    <div className={`${styles.card_container} ${styles[type[0].name]}`} key={id} >
+    <div className={`${styles.card_container} ${styles[type[0].name || type[0] || 'unknown']}`} key={id} >
       <div className={styles.card_container_title}>
         <span className={styles.card_title}>{name}</span>
       </div>
@@ -15,7 +21,7 @@ const Pokemon = ({ id, name, image, attack, type }) => {
       <div className={styles.card_container_types}>
         {type &&
           type.map((type, index) => {
-            return <span className={styles.types_name} key={index}>{type.name}</span>;
+            return <span className={styles.types_name} key={index}>{type.name ||type || 'unknown'}</span>;
           })}
       </div>
       <div className={styles.card_container_types}>
