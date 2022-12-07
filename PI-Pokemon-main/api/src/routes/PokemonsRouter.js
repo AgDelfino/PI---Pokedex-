@@ -13,12 +13,13 @@ const { Pokemon, Type } = require("../db");
 const PokemonsRouter = Router();
 
 PokemonsRouter.get('/', async(req,res)=>{
+  
   let queryName = req.query.name
 
   if(queryName){
     queryName = queryName.toLocaleLowerCase()
-    let pokeResult = await getApiPokemonByName(queryName)
     
+    let pokeResult = await getApiPokemonByName(queryName)
   
   if(pokeResult.msg){
     pokeResult = await getDbPokemonByName(queryName)

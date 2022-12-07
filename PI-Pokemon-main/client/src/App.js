@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Home from './components/Home/Home.jsx'
 import Details from "./components/Details/Details";
 import Create from "./components/Create/Create";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
       <Route exact path='/create'>
         <Create/>
         </Route> 
+        <Route exact path='/about'>
+        <About/>
+        </Route> 
+      
     </div>
   );
 }

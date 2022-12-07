@@ -11,7 +11,7 @@ const Create = () => {
   const types = useSelector((state) => state.types);
   const dispatch = useDispatch();
   const globalPokemons = useSelector((state) => state.pokemons);
-  const  history = useHistory()
+  const history = useHistory();
 
   const [error, setError] = useState({
     name: "",
@@ -80,8 +80,9 @@ const Create = () => {
     e.preventDefault();
     try {
       const validate = validateForm(input, globalPokemons);
-      sendForm(input).then((response) => alert(validate));
-      // history.push('/pokemons')
+      sendForm(input)
+        .then((response) => alert(validate))
+        .then(history.push("/pokemons"));
     } catch (error) {
       alert(error);
     }
@@ -90,74 +91,89 @@ const Create = () => {
   return (
     <div>
       <NavBar />
-      <h1>CREATE YOUR POKEMON!</h1>
+      <div className={styles.h1_container}>
+        <h1 class={styles.select_type_title}>CREATE YOUR POKEMON !</h1>
+      </div>
       <div className={styles.father_container}>
         <div className={styles.form_container}>
           <form onSubmit={submitHandler} className={styles.form}>
-            <input
-              className={styles.input}
-              value={input.name}
-              name="name"
-              type="text"
-              placeholder="Insert your pokemons name..."
-              onChange={(e) => handleChange(e)}
-              maxLength="20"
-            ></input>
-            {error.name && <p className={styles.error}>{error.name}</p>}
-            <input
-              className={styles.input}
-              value={input.attack}
-              name="attack"
-              type="number"
-              placeholder="Attack..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.attack && <p className={styles.error}>{error.attack}</p>}
-            <input
-              className={styles.input}
-              value={input.defense}
-              name="defense"
-              type="number"
-              placeholder="Defense..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.defense && <p className={styles.error}>{error.defense}</p>}
-            <input
-              className={styles.input}
-              value={input.hp}
-              name="hp"
-              type="number"
-              placeholder="HP..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.hp && <p className={styles.error}>{error.hp}</p>}
-            <input
-              className={styles.input}
-              value={input.speed}
-              name="speed"
-              type="number"
-              placeholder="Speed..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.speed && <p className={styles.error}>{error.speed}</p>}
-            <input
-              className={styles.input}
-              value={input.height}
-              name="height"
-              type="number"
-              placeholder="Height..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.height && <p className={styles.error}>{error.height}</p>}
-            <input
-              className={styles.input}
-              value={input.weight}
-              name="weight"
-              type="number"
-              placeholder="Weight..."
-              onChange={(e) => handleChange(e)}
-            ></input>
-            {error.weight && <p className={styles.error}>{error.weight}</p>}
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.name}
+                name="name"
+                type="text"
+                onChange={(e) => handleChange(e)}
+                maxLength="20"
+              ></input>
+              {error.name && <p className={styles.error}>{error.name}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.attack}
+                name="attack"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.attack && <p className={styles.error}>{error.attack}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.defense}
+                name="defense"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.defense && <p className={styles.error}>{error.defense}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.hp}
+                name="hp"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.hp && <p className={styles.error}>{error.hp}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.speed}
+                name="speed"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.speed && <p className={styles.error}>{error.speed}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.height}
+                name="height"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.height && <p className={styles.error}>{error.height}</p>}
+            </div>
+
+            <div className={styles.input_container}>
+              <input
+                className={styles.input}
+                value={input.weight}
+                name="weight"
+                type="number"
+                onChange={(e) => handleChange(e)}
+              ></input>
+              {error.weight && <p className={styles.error}>{error.weight}</p>}
+            </div>
             <h2 className={styles.select_type_title}>
               SELECT YOUR POKEMONS TYPE :{" "}
             </h2>
@@ -180,7 +196,7 @@ const Create = () => {
                   : null}
               </div>
               <div className={styles.button_container}>
-                <button className={styles.create_button} type="submit" >
+                <button className={styles.create_button} type="submit">
                   Catch' em!
                 </button>
               </div>

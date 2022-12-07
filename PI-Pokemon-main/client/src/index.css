@@ -37,6 +37,14 @@ code {
     monospace;
 }
 
+.title{
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 50px;
+  color: #ffce31;
+  text-shadow: -2px -2px 1px #373299, 2px 2px 1px #373299, -2px 2px 1px #373299, 2px -2px 1px #373299, 8px 9px 1px black;
+  margin-bottom: 0;
+}
+
 .pokemon_buttons{
   border-radius: 10px;
   font-size: 20px;
@@ -48,6 +56,7 @@ code {
   background: transparent;
   backdrop-filter: blur(1px);
   transition: .2s ease-in-out all;
+  cursor: pointer;
 }
 
 .pokemon_buttons:focus{
@@ -70,4 +79,64 @@ code {
 
 .filter_buttons:focus{
   box-shadow: none;
+}
+
+.progress{
+  position: relative;
+  height: 10px;
+  width: 20rem;
+  border: 10px solid #fec304;
+  border-radius: 15px;
+  background-color: #fec304;
+  padding-bottom: 7px;
+}
+.progress .color{
+  position: absolute;
+  background-color: #ffffff;
+  width: 0px;
+  height: 10px;
+  border-radius: 15px;
+  animation: progres 4s infinite linear;    
+}
+@keyframes progres{
+  0%{
+    width: 0%;
+  }
+  25%{
+      width: 50%;
+  }
+  50%{
+      width: 75%;
+  }
+  75%{
+      width: 85%;
+  }
+  100%{
+      width: 100%;
+  }
+};
+
+.exit_button {
+  display: flex;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  right: 15px;
+  top: 15px;
+  border-radius: 15px;
+  background-color: #d33f59;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #e1def1;
+  transition: 0.1s ease-in-out all;
+  align-items: center;
+}
+
+.exit_button svg {
+  stroke-width: 3px;
+}
+
+.exit_button:hover {
+  background-color: #e1def1;
+  color: #d33f59;
 }

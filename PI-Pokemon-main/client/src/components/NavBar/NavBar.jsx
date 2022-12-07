@@ -5,17 +5,24 @@ import styles from "./NavBar.module.css";
 import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
 import { useState } from "react";
-import audio from '../../audio/AtrapalosYa.mp3'  
-
+import audio from '../../audio/AtrapalosYa.mp3'
+import ReactHowler from 'react-howler'
 const NavBar = () => {
 
   const [muted, setMuted] = useState(true)
 
+  const musicHandler = () => {
+    setMuted(true)
+  }
+
   return (
-    <div className={styles.nav_bar}>
-      <audio src={audio} autoPlay muted={muted} loop></audio>
+    <div className={styles.nav_bar}> 
+
+      <ReactHowler src={audio} playing={muted}/>
+      
+      {/* <audio src={audio} autoPlay muted={muted} loop></audio> */}
       <div className={styles.music_container}>
-      <h4 className={styles.click_me}>CLICK ME</h4>
+      <h4 className={styles.click_me} onClick={musicHandler}>CLICK ME</h4>
             <button className={styles.opening} onClick={() => {
                 setMuted(!muted)
             }}></button>
@@ -38,7 +45,7 @@ const NavBar = () => {
                 <Link to="/create">Create your Pokemon</Link>
               </li>
               <li>
-                {/* <Link to="/about">About Us</Link> */}
+                <Link to="/about">About Us</Link>
               </li>
             </ul>
           </div>
