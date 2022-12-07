@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import leftLogo from "../../images/logo_gif.png";
-import style from "./NavBar.module.css";
+import styles from "./NavBar.module.css";
 import rightLogo from "../../images/poke_title.png";
 import titleGif from "../../images/title.gif";
 import { useState } from "react";
@@ -12,22 +12,24 @@ const NavBar = () => {
   const [muted, setMuted] = useState(true)
 
   return (
-    <div className={style.nav_bar}>
+    <div className={styles.nav_bar}>
       <audio src={audio} autoPlay muted={muted} loop></audio>
-      <h4>CLICK ME</h4>
-            <button className={style.opening} onClick={() => {
+      <div className={styles.music_container}>
+      <h4 className={styles.click_me}>CLICK ME</h4>
+            <button className={styles.opening} onClick={() => {
                 setMuted(!muted)
             }}></button>
-      <div className={style.nav_bar_container}>
-        <div className={style.nav_bar_left}>
+      </div>
+      <div className={styles.nav_bar_container}>
+        <div className={styles.nav_bar_left}>
           <Link to="/">
             <img
-              className={style.nav_bar_logo}
+              className={styles.nav_bar_logo}
               src={leftLogo}
               alt="LeftLogo"
             ></img>
           </Link>
-          <div className={style.nav_menu}>
+          <div className={styles.nav_menu}>
             <ul>
               <li>
                 <Link to="/pokemons">Home</Link>
@@ -36,17 +38,17 @@ const NavBar = () => {
                 <Link to="/create">Create your Pokemon</Link>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
+                {/* <Link to="/about">About Us</Link> */}
               </li>
             </ul>
           </div>
         </div>
-        <div className={style.nav_bar_right_container}>
+        <div className={styles.nav_bar_right_container}>
           <div>
-            <img className={style.pokeball} src={titleGif} alt="Pokeball" />
+            <img className={styles.pokeball} src={titleGif} alt="Pokeball" />
           </div>
-          <div className={style.nav_bar_right}>
-            <img className={style.pokemon} src={rightLogo} alt="Pokemon" />
+          <div className={styles.nav_bar_right}>
+            <img className={styles.pokemon} src={rightLogo} alt="Pokemon" />
           </div>
         </div>
       </div>

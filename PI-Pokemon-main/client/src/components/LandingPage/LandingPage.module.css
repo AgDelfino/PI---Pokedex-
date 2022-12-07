@@ -39,13 +39,12 @@
     background-color: #343099;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
     cursor: pointer;
+    box-shadow: 5px 5px 0 1px black;
+    transition: .2s ease-in-out all;
 }
 
-.landing_button:hover{
-    color: #343099;
-    background-color: #ffce31;
-    text-shadow: none;
-    box-shadow: 2px 2px 1px black;
+.landing_button:focus{
+    box-shadow: none;
 }
 
 

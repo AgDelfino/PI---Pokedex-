@@ -13,9 +13,10 @@ import {
 const initialState = {
   pokemons: [],
   pokemonDetails: '',
+  types: [],
+//-----ERRORS----///
   searchError: {},
   filterError: {},
-  types: [],
 };
 
 export default function rootReducer(state = initialState, action) {

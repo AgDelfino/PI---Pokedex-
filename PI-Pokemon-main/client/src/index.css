@@ -36,3 +36,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pokemon_buttons{
+  border-radius: 10px;
+  font-size: 20px;
+  width: 6rem;
+  height: 2rem;
+  color: #294397;
+  font-family: 'Adventure';
+  box-shadow:  3px 4px 0 black;;
+  background: transparent;
+  backdrop-filter: blur(1px);
+  transition: .2s ease-in-out all;
+}
+
+.pokemon_buttons:focus{
+  box-shadow: none;
+}
+
+.filter_buttons{
+  border-radius: 10px;
+  font-size: 20px;
+  width: 3.5rem;
+  height: 3rem;
+  color: #294397;
+  font-family: 'Adventure';
+  box-shadow:  3px 4px 0 black;;
+  background: #fec304;
+  backdrop-filter: blur(1px);
+  transition: .2s ease-in-out all;
+  padding-left: 1px;
+}
+
+.filter_buttons:focus{
+  box-shadow: none;
+}

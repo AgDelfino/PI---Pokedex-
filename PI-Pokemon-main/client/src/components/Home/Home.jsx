@@ -83,15 +83,15 @@ const Home = () => {
     <div>
       <NavBar />
       <div className={styles.searchbar_container}>
-        <button onClick={resetHandler}>RESET</button>
+        <button className="pokemon_buttons" onClick={resetHandler}>Reset</button>
         <SearchBar paginator={paginated} />
         <button
-          className={styles.filters_button}
+          className='pokemon_buttons'
           onClick={() =>
             setFilters((state) => ({ ...state, active: !state.active }))
           }
         >
-          ICONO
+          Filters
         </button>
       </div>
       <Filters

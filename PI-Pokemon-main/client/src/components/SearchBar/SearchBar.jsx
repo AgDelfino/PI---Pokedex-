@@ -15,15 +15,21 @@ const SearchBar = ({paginator}) => {
 
     const handlerSubmit = (e) => {
         e.preventDefault()
+        // if(!search) return alert('Nothing to search!')
         dispatch(resetPokemons())
         dispatch(searchPokemon(search))
         paginator(1)
+        setSearch('')
+        e.target.reset()
     }
 
     return (
-        <form className={styles.form} onSubmit={handlerSubmit}>
-            <input type='text' placeholder='Search your pokemon...' onChange={onChange}></input>
-            <button type='submit'>SEARCH</button>
+        <form className={styles.form_container} onSubmit={handlerSubmit}>
+            <input className={styles.search_input} type='text' placeholder='Search your pokemon...' onChange={onChange}></input>
+            <div>
+
+            <button className='pokemon_buttons' type='submit'>Search</button>
+            </div>
         </form>
     )
 }

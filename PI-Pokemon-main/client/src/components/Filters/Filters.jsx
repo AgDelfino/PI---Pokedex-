@@ -21,6 +21,7 @@ const Filters = ({ filters, setFilters, paginator }) => {
       filterApiOrDb: filter
     }
    })
+   paginator(1)
  }
 
   const sortHandler = (e) => {
@@ -48,7 +49,6 @@ const Filters = ({ filters, setFilters, paginator }) => {
     paginator(1);
 
     if (filters.typeFilter.find((f) => f === type)) {
-      console.log(filters.typeFilter);
       return setFilters((state) => ({
         ...state,
         typeFilter: state.typeFilter.filter((t) => t !== type).concat(""),
@@ -99,47 +99,39 @@ const Filters = ({ filters, setFilters, paginator }) => {
       <h3 className={styles.title_type}>Order by: </h3>
       <div className={styles.sort_buttons_container}>
         <button
-          className={`${styles.sort_button} ${
-            filters.sortFilter === "A-Z" ? styles.sort_active : null
-          }`}
+          className='filter_buttons'
           id="A-Z"
           onClick={sortHandler}
         >
           A-Z
         </button>
         <button
-          className={`${styles.sort_button} ${
-            filters.sortFilter === "Z-A" ? styles.sort_active : null
-          }`}
+          className='filter_buttons'
           id="Z-A"
           onClick={sortHandler}
         >
           Z-A
         </button>
         <button
-          className={`${styles.sort_button} ${
-            filters.sortFilter === "ATK-" ? styles.sort_active : null
-          }`}
+          className='filter_buttons'
           id="ATK-"
           onClick={sortHandler}
         >
-          Mayor ATK
+          {`>ATK`}
         </button>
         <button
-          className={`${styles.sort_button} ${
-            filters.sortFilter === "ATK+" ? styles.sort_active : null
-          }`}
+          className='filter_buttons'
           id="ATK+"
           onClick={sortHandler}
         >
-          Menor ATK
+          {`<ATK`}
         </button>
       </div>
       <h3 className={styles.title_type}>Select by: </h3>
       <div className={styles.db_api_buttons_container}>
-        <button id="DB" className={`${filters.filterApiOrDb === "DB" ? styles.filter_button_active : null}`} onClick={apiOrDbHandler}>Data Base</button>
-        <button id="API" onClick={apiOrDbHandler} className={`${filters.filterApiOrDb === "API" ? styles.filter_button_active : null}`} >API</button>
-        <button id="ALL" onClick={apiOrDbHandler}className={`${filters.filterApiOrDb === "ALL" ? styles.filter_button_active : null}`}  >All Pokemons</button>
+        <button id="DB" className='filter_buttons' onClick={apiOrDbHandler}>D B</button>
+        <button id="API" onClick={apiOrDbHandler} className='filter_buttons'>API</button>
+        <button id="ALL" onClick={apiOrDbHandler}className='filter_buttons'  >ALL</button>
       </div>
     </div>  
   );

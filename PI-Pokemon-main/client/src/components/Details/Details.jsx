@@ -54,10 +54,11 @@ const Details = () => {
             <span
               className={styles.stats}
             >{`Weight: ${pokemonDetails.attack}`}</span>
+        
           </div>
           <div className={styles.types_container}>
-            <img src={`../../images/typesIcons/${pokemonDetails.types[0].name}`} alt={pokemonDetails.types[0].name} />
-            <img src={`../../images/typesIcons/${pokemonDetails.types[1].name}`}  alt={pokemonDetails.types[1].name}/>
+            {/* <img src={`../../images/typesIcons/${pokemonDetails.types[0].name}`} alt={pokemonDetails.types[0].name} />
+            <img src={`../../images/typesIcons/${pokemonDetails.types[1].name}`}  alt={pokemonDetails.types[1].name}/> */}
           </div>
         </div>
       </div>

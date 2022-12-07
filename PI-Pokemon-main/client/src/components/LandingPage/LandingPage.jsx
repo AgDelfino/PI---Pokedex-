@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import style from './LandingPage.module.css'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import pokedex from '../../images/pokedex.png'
 import { useDispatch } from "react-redux";
 import { getAllPokemons, getAllTypes } from "../../Redux/actions";
@@ -8,12 +8,20 @@ import { getAllPokemons, getAllTypes } from "../../Redux/actions";
 const LandingPage = () => {
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getAllPokemons())
         dispatch(getAllTypes())
     }, [dispatch])
 
+    const handleClick = () => {
+        setTimeout(() => {
+            history.push('/pokemons')
+        }, 1000)
+    }
+
+    
 
     return (
         <div className={style.lading_container}>
@@ -23,9 +31,8 @@ const LandingPage = () => {
             <div className={style.container}>
                 <img className={style.landing_img} src={pokedex} alt='Pokedex'/> 
             </div>
-            <Link to='/pokemons'>
-                <button className={style.landing_button} point>Let's Go</button>
-            </Link>
+            
+                <button className={style.landing_button} point onClick={handleClick}>Let's Go</button>
         </div>
     )
 }
