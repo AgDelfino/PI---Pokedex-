@@ -42,16 +42,14 @@
   margin-bottom: 1rem;
 }
 .error {
-   text-align: left;
+  text-align: left;
   position: absolute;
   margin-top: 0;
   font-weight: bold;
   color: red;
-  animation-delay: 3s;
-  animation-name: slidein;
-  left: 50px;
+  left: 345px;
   top: 10px;
-  
+  text-align: right;  
 }
 
 .card_container {

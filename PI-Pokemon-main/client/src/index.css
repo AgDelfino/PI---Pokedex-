@@ -116,27 +116,3 @@ code {
   }
 };
 
-.exit_button {
-  display: flex;
-  position: absolute;
-  width: 3rem;
-  height: 3rem;
-  right: 15px;
-  top: 15px;
-  border-radius: 15px;
-  background-color: #d33f59;
-  font-size: 20px;
-  font-weight: bolder;
-  color: #e1def1;
-  transition: 0.1s ease-in-out all;
-  align-items: center;
-}
-
-.exit_button svg {
-  stroke-width: 3px;
-}
-
-.exit_button:hover {
-  background-color: #e1def1;
-  color: #d33f59;
-}

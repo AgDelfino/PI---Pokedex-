@@ -9,7 +9,7 @@ import audio from '../../audio/AtrapalosYa.mp3'
 import ReactHowler from 'react-howler'
 const NavBar = () => {
 
-  const [muted, setMuted] = useState(true)
+  const [muted, setMuted] = useState(false)
 
   const musicHandler = () => {
     setMuted(true)

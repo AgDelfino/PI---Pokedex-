@@ -4,6 +4,8 @@ export function filterPokemons(pokemons, { typeFilter }) {
   if (!typeFilter[0] && !typeFilter[1]) {
     return [...pokemons];
   }
+
+ 
   if (typeFilter[0] && typeFilter[1]) {
     const sortedFilters = typeFilter.sort();
     const filteredPokemons = pokemons.filter((pokemon) => {
@@ -26,10 +28,10 @@ export function filterPokemons(pokemons, { typeFilter }) {
   }
   if (typeFilter[0] && !typeFilter[1]) {
     const filteredPokemons = pokemons.filter((pokemon) => {
-      const hasFilterType = pokemon.type?.find((t) => t.name === typeFilter[0]);
+      const hasFilterType = pokemon.type?.find((t) => t.name === typeFilter[0]) && pokemon.type.length === 1;
       const hasFilterTypes = pokemon.types?.find(
         (t) => t.name === typeFilter[0]
-      );
+      ) && pokemon.types.length === 1
 
       if (hasFilterType || hasFilterTypes) {
         return pokemon;
@@ -119,8 +121,7 @@ export async function sendForm(input) {
 }
 
 export function formErrors(input, globalPokemons) {
-  
-  let copyError = {}
+  let copyError = {};
 
   if (!input.name) copyError.name = "Must provide a name";
   else if (/[^A-Za-z ]+/g.test(input.name))
@@ -132,7 +133,6 @@ export function formErrors(input, globalPokemons) {
   )
     copyError.name = "This pokemon already exists";
 
-  
   if (!input.attack) copyError.attack = "Must set Attack (1 to 999)";
   else if (input.attack < 1 || input.attack > 999)
     copyError.attack = "Attack must be between 1 and 999";
@@ -142,7 +142,7 @@ export function formErrors(input, globalPokemons) {
     copyError.defense = "Defense must be between 1 and 999";
 
   if (!input.hp) copyError.hp = "Must set HP (1 to 999)";
-  else if (input.hp  < 1 || input.hp > 999)
+  else if (input.hp < 1 || input.hp > 999)
     copyError.hp = "Defense must be between 1 and 999";
 
   if (!input.speed) copyError.speed = "Must set a Speed (1 to 999)";
