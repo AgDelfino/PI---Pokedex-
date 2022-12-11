@@ -55,10 +55,3 @@
     width: 260px;
 }
 
-.loading_container{
-    display: flex;
-    margin-top: 4rem;
-    margin-right: 3rem;
-    justify-content: center;
-    align-items: center;
-  }

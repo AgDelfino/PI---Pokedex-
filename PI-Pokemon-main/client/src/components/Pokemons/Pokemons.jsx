@@ -2,6 +2,8 @@ import Pokemon from "../Pokemon/Pokemon.jsx";
 import styles from "./Pokemons.module.css";
 import { Link } from "react-router-dom";
 import loading from "../../images/PikachuLoad.gif";
+import Loading from '../Loading/Loading.jsx'
+
 
 const Pokemons = ({ pokes }) => {
   return (
@@ -21,12 +23,7 @@ const Pokemons = ({ pokes }) => {
           );
         })
       ) : (
-        <div className={styles.loading_container}>
-          <div class="progress">
-            <div class="color"></div>
-            <img src={loading} alt="LOADING" />
-          </div>
-        </div>
+        <Loading/>
       )}
     </div>
   );
