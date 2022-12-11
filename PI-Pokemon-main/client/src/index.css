@@ -75,6 +75,7 @@ code {
   backdrop-filter: blur(1px);
   transition: .2s ease-in-out all;
   padding-left: 1px;
+  cursor: pointer;
 }
 
 .filter_buttons:focus{

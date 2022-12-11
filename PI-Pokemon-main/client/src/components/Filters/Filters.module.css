@@ -70,8 +70,24 @@
 }
 
 .title_type{
-    color: white
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 8px;
 }
+
+.exit_button {
+   display: flex;
+   position: absolute;
+   width: 3rem;
+   height: 3rem;
+   right: 15px;
+   cursor: pointer;
+   color: #e1def1;
+   transition: 0.1s ease-in-out all;
+   align-items: center;
+   background: transparent;
+   border: none;
+ }
 
 .electric{
    position: relative; 

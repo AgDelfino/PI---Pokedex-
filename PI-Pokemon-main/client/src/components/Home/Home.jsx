@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import styles from "./Home.module.css";
 import Pokemons from "../Pokemons/Pokemons.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
+import Loading from "../Loading/Loading.jsx";
 import {
   getAllPokemons,
   getAllTypes,
@@ -80,6 +81,10 @@ const Home = () => {
   };
 
   return (
+    <>
+  { 
+  
+    !pokemonsGlobal.length ? <Loading/> :
     <div>
       <NavBar />
       <div className={styles.searchbar_container}>
@@ -115,6 +120,8 @@ const Home = () => {
         </>
       )}
     </div>
+  }
+   </>
   );
 };
 
